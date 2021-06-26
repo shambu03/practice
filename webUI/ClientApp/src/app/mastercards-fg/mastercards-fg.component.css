@@ -1,0 +1,85 @@
+input, label {
+  display: block;
+}
+
+
+/*form {
+  width: 320px;
+  float: left;
+  margin: 20px;
+}*/
+
+  div {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .go-bottom input, form textarea {
+    width: 100%;
+    border: 2px solid gray;
+    background: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 8px 12px;
+    outline: 0;
+    height:35px;
+  }
+
+    .go-bottom input:valid, form textarea:valid {
+      /* background: white;*/
+    }
+
+    .go-bottom input:focus, form textarea:focus {
+      /*border-color: #f06d06;*/
+    }
+
+      .go-bottom input:focus + label, form textarea:focus + label {
+        background: #f06d06;
+        color: white;
+        font-size: 70%;
+        padding: 1px 6px;
+        z-index: 2;
+        text-transform: uppercase;
+      }
+
+.go-bottom label {
+  /* transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+  position: absolute;
+  color: #999;
+  padding: 7px 6px;*/
+  background: #f06d06;
+  color: white;
+  font-size: 70%;
+  padding: 1px 6px;
+  z-index: 2;
+  text-transform: uppercase;
+  top: 100%;
+  margin-top: -16px;
+}
+
+.go-bottom textarea {
+  display: block;
+  resize: vertical;
+}
+
+  .go-bottom input, form.go-bottom textarea {
+    padding: 1px 12px 12px 12px;
+  }
+
+  .go-bottom label {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .go-bottom input:focus, form.go-bottom textarea:focus {
+    padding: 4px 6px 20px 6px;
+  }
+
+    .go-bottom input:focus + label, form.go-bottom textarea:focus + label {
+      /*top: 100%;
+      margin-top: -16px;*/
+    }

@@ -1,0 +1,41 @@
+
+
+<div class="card-body" style="font-family:'Courier New'; font-size:15px;">
+
+  <div class="d-flex bd-highlight">
+    <div class="p-2 flex-grow-1 bd-highlight">
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedMessageType" (ngModelChange)="onMessageTypeChange($event)">
+        <option>--Select Message Types--</option>
+        <option *ngFor="let msgType of MessageTypeList">
+          {{msgType.description}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <form #myForm="ngForm">
+    <div class="input-group" style="min-height: 250px; max-height: 350px; overflow-y: scroll;">
+      <div *ngFor="let element of ElementList">
+        <div class="d-flex bd-highlight" #txtDiv id="div{{element.id}}">
+          <div class="flex-grow-1 bd-highlight" style="margin-bottom:2px;">
+            <div class="go-bottom">
+              <input class="form-control" id="DE{{element.id}}" [(ngModel)]="element.InputValue" name="DE{{element.dataElementNO}}" type="text" title="Format : {{element.format}} | Length : {{element.length}}">
+              <label for="DE{{element.id}}">
+                {{element.dataElementName}}
+              </label>
+            </div>
+          </div>
+          <div class="bd-highlight" *ngIf="element.dst != 'M'"><button type="button" class="btn-close" aria-label="Close" (click)="removediv(txtDiv)"></button></div>
+        </div>
+      </div>
+    </div>
+
+    <input type="button" class="btn-primary" value="Add to List" (click)="addToFile(myForm, outDiv)" />
+
+    <div class="input-group text-break" #outDiv>
+      <textarea class="span6" rows="3" name="ExistingData" style="height: 250px;" [(ngModel)]="existingdata" placeholder="What's up?" required></textarea>
+    </div>
+
+    <input type="button" class="btn-success" value="Generate File" (click)="generateFile(myForm)" />
+  </form>
+</div>
+
